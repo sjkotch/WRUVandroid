@@ -21,7 +21,6 @@
         <activity android:name=".LiveFeed"></activity>
         <activity android:name=".Schedule"></activity>
 
-
     </application>
 
 </manifest>
