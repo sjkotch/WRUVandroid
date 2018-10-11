@@ -18,7 +18,6 @@
         </activity>
 
         <activity android:name=".ChatTheDJ"></activity>
-        <activity android:name=".News"></activity>
         <activity android:name=".LiveFeed"></activity>
         <activity android:name=".Schedule"></activity>
 
