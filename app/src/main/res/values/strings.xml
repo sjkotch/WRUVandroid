@@ -1,3 +1,18 @@
 <resources>
+    <!-- App Title -->
     <string name="app_name">WRUVandroid</string>
+
+    <!-- Strings for activity_home.xml -->
+
+    <!-- Strings for activity_live_feed.xml -->
+    <string name="title_live_feed">Live Feed</string>
+    <string name="menu_butt_description">Menu button to navigate to other pages</string>
+    <string name="filter_butt_description">Menu button to filter what is shown in the live feed</string>
+
+    <!-- Strings for activity_chat.xml -->
+
+    <!-- Strings for activity_schedule.xml -->
+
+    <!-- Strings for left_menu.xml -->
+
 </resources>
