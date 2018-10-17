@@ -9,7 +9,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="58dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/pageHeader"
@@ -32,15 +32,15 @@
 
         <ImageButton
             android:id="@+id/buttFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginRight="15dp"
             android:background="@android:color/background_dark"
             android:contentDescription="@string/filter_butt_description"
             app:layout_constraintBottom_toBottomOf="@+id/pageHeader"
             app:layout_constraintRight_toRightOf="@+id/pageHeader"
             app:layout_constraintTop_toTopOf="@+id/pageHeader"
-            app:srcCompat="@android:drawable/ic_menu_view" />
+            app:srcCompat="@drawable/filter" />
 
         <TextView
             android:id="@+id/pageTitle"
@@ -60,7 +60,7 @@
         android:id="@+id/liveFeedLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="57dp"
+        android:layout_marginTop="58dp"
         app:layout_constraintTop_toTopOf="@+id/headerLayout">
 
         <android.support.v7.widget.RecyclerView
