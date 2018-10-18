@@ -25,6 +25,10 @@
     <string name="img_error_description">Error icon</string>
     <string name="img_alert_description">Alert icon</string>
 
+    <string name="filter_song">Songs</string>
+    <string name="filter_dj">DJ Changes</string>
+    <string name="filter_other">Other</string>
+
     <!-- Strings for activity_chat.xml -->
 
     <!-- Strings for activity_schedule.xml -->
