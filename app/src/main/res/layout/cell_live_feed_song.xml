@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cellSong"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:background="@color/fontWhite">
+
+    <ImageView
+        android:id="@+id/musicIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:tint="@color/accentRed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/music_player" />
+
+    <TextView
+        android:id="@+id/txtSong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/live_feed_song"
+        android:textColor="@color/fontBlack"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toRightOf="@+id/musicIcon"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtArtist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/live_feed_artist"
+        android:textColor="@color/fontBlack"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/txtSong"
+        app:layout_constraintTop_toBottomOf="@+id/txtSong" />
+
+    <TextView
+        android:id="@+id/txtAlbum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/live_feed_album"
+        android:textColor="@color/fontBlack"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/txtArtist"
+        app:layout_constraintTop_toBottomOf="@+id/txtArtist" />
+
+    <TextView
+        android:id="@+id/txtDj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/live_feed_dj"
+        android:textColor="@color/fontBlack"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/live_feed_time"
+        android:textColor="@color/fontBlack"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -10,15 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Home">
+
+        </activity>
+
+
+        <activity android:name=".ChatTheDJ"></activity>
+        <activity android:name=".LiveFeed">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".ChatTheDJ"></activity>
-        <activity android:name=".LiveFeed"></activity>
         <activity android:name=".Schedule"></activity>
 
     </application>
