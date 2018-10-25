@@ -15,6 +15,7 @@ public class LiveFeed extends AppCompatActivity {
 
     //XML elements
     private ImageButton buttFilter;
+    private ImageButton buttMenu;
 
     //Variables
     Boolean songsChecked = true;
@@ -26,7 +27,11 @@ public class LiveFeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_feed);
 
+        //Setting buttons to corresponding ID's
         buttFilter = (ImageButton) findViewById(R.id.buttFilter);
+        buttMenu = (ImageButton) findViewById(R.id.buttMenu);
+
+        //OnClickListener for Filter Button
         buttFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +40,7 @@ public class LiveFeed extends AppCompatActivity {
                 //Inflating the Popup using xml file
                 popup.getMenuInflater()
                         .inflate(R.menu.menu_filter_live_feed, popup.getMenu());
-                
+
                 //registering popup with OnMenuItemClickListener
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     public boolean onMenuItemClick(MenuItem item) {
@@ -43,7 +48,6 @@ public class LiveFeed extends AppCompatActivity {
                         return true;
                     }
                 });
-
                 popup.show(); //showing popup menu
             }
         }); //closing the setOnClickListener method
