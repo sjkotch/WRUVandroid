@@ -21,8 +21,8 @@
 
         <ImageButton
             android:id="@+id/buttMenu"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="15dp"
             android:background="@drawable/menu_options"
             android:contentDescription="@string/menu_butt_description"
@@ -32,8 +32,8 @@
 
         <ImageButton
             android:id="@+id/buttFilter"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginRight="15dp"
             android:background="@android:color/background_dark"
             android:contentDescription="@string/filter_butt_description"
