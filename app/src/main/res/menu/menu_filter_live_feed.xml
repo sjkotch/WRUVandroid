@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/song_check"
+        android:title="@string/filter_song"
+        android:orderInCategory="200"
+        app:showAsAction="never"
+        android:visible="true"
+        android:checkable="true"/>
+    <item
+        android:id="@+id/dj_check"
+        android:title="@string/filter_dj"
+        android:orderInCategory="200"
+        app:showAsAction="never"
+        android:visible="true"
+        android:checkable="true"/>
+    <item
+        android:id="@+id/other_check"
+        android:title="@string/filter_other"
+        android:orderInCategory="200"
+        app:showAsAction="never"
+        android:visible="true"
+        android:checkable="true"/>
+</menu>

@@ -9,7 +9,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="58dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/pageHeader"
@@ -21,28 +21,29 @@
 
         <ImageButton
             android:id="@+id/buttMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="15dp"
-            android:background="@android:color/background_dark"
+            android:background="@drawable/menu_options"
+            android:contentDescription="@string/menu_butt_description"
             app:layout_constraintBottom_toBottomOf="@+id/pageHeader"
             app:layout_constraintLeft_toLeftOf="@+id/pageHeader"
-            app:layout_constraintTop_toTopOf="@+id/pageHeader"
-            app:srcCompat="@drawable/menu_options" />
+            app:layout_constraintTop_toTopOf="@+id/pageHeader" />
 
         <ImageButton
             android:id="@+id/buttFilter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginRight="15dp"
             android:background="@android:color/background_dark"
+            android:contentDescription="@string/filter_butt_description"
             app:layout_constraintBottom_toBottomOf="@+id/pageHeader"
             app:layout_constraintRight_toRightOf="@+id/pageHeader"
             app:layout_constraintTop_toTopOf="@+id/pageHeader"
-            app:srcCompat="@android:drawable/ic_menu_view" />
+            app:srcCompat="@drawable/filter" />
 
         <TextView
-            android:id="@+id/pageTitle"
+            android:id="@+id/txtPageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -53,6 +54,55 @@
             app:layout_constraintLeft_toRightOf="@+id/buttMenu"
             app:layout_constraintTop_toTopOf="@+id/pageHeader" />
 
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/liveFeedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="58dp"
+        android:visibility="visible"
+        app:layout_constraintTop_toTopOf="@+id/headerLayout">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/liveFeedRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/errorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="58dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@+id/headerLayout">
+
+        <ImageView
+            android:id="@+id/errorIcon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="@string/live_feed_error"
+            android:tint="@color/accentRed"
+            app:layout_constraintBottom_toTopOf="@+id/txtFeedError"
+            app:layout_constraintLeft_toLeftOf="@+id/txtFeedError"
+            app:layout_constraintRight_toRightOf="@+id/txtFeedError"
+            app:srcCompat="@drawable/error" />
+
+        <TextView
+            android:id="@+id/txtFeedError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/live_feed_error"
+            android:textColor="@color/accentRed"
+            android:textSize="18sp"
+            android:textStyle="normal"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

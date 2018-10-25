@@ -6,13 +6,33 @@
 
     <!-- Strings for activity_live_feed.xml -->
     <string name="title_live_feed">Live Feed</string>
+
+    <string name="live_feed_song">Song Name</string>
+    <string name="live_feed_artist">Artist</string>
+    <string name="live_feed_album">Album</string>
+    <string name="live_feed_dj">DJ Name</string>
+    <string name="live_feed_time"># minutes ago</string>
+    <string name="live_feed_preforming">Now Listening To:</string>
+    <string name="live_feed_time_slot">00:00am - 00:00am</string>
+    <string name="live_feed_line_1">Text Line 1</string>
+    <string name="live_feed_line_2">Text Line 2</string>
+    <string name="live_feed_error">Oops! Something went wrong</string>
+
     <string name="menu_butt_description">Menu button to navigate to other pages</string>
     <string name="filter_butt_description">Menu button to filter what is shown in the live feed</string>
+    <string name="img_song_description">Music note icon</string>
+    <string name="img_dj_description">Turntable icon</string>
+    <string name="img_error_description">Error icon</string>
+    <string name="img_alert_description">Alert icon</string>
+
+    <string name="filter_song">Songs</string>
+    <string name="filter_dj">DJ Changes</string>
+    <string name="filter_other">Other</string>
 
     <!-- Strings for activity_chat.xml -->
 
     <!-- Strings for activity_schedule.xml -->
 
-    <!-- Strings for left_menu.xml -->
+    <!-- Strings for menu_nav.xml -->
 
 </resources>
