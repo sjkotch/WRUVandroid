@@ -6,6 +6,10 @@
 
     <!-- Strings for activity_live_feed.xml -->
     <string name="title_live_feed">Live Feed</string>
+<<<<<<< HEAD
+=======
+    <string name="title_chat_the_dj">Chat the DJ</string>
+>>>>>>> 9efd9b8... [ADD] UI components to Chat the dj page
     <string name="live_feed_song">Song Name</string>
     <string name="live_feed_artist">Artist</string>
     <string name="live_feed_album">Album</string>

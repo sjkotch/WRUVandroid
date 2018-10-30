@@ -31,6 +31,7 @@
   </component>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
 =======
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="JDK" project-jdk-type="JavaSDK">
@@ -38,6 +39,18 @@
 =======
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="JDK" project-jdk-type="JavaSDK">
 >>>>>>> ce0f4a2... [FIX] send button constraints && strings.xml updated
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+>>>>>>> 379452eea9537b518954fdb149a231d17b058d2e
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+=======
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+>>>>>>> 3f6b17f... [ADD] UI components to Chat the dj page
+>>>>>>> 9efd9b8... [ADD] UI components to Chat the dj page
+>>>>>>> 3b78ca1... [ADD] UI components to Chat the dj page
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
