@@ -32,7 +32,7 @@
     <!-- Strings for activity_chat.xml -->
 
     <!-- Strings for activity_schedule.xml -->
-
+    <string name="title_schedule">Schedule</string>
     <!-- Strings for menu_nav.xml -->
 
 </resources>
