@@ -6,7 +6,7 @@
 
     <!-- Strings for activity_live_feed.xml -->
     <string name="title_live_feed">Live Feed</string>
-
+    <string name="title_chat_the_dj">Chat the DJ</string>
     <string name="live_feed_song">Song Name</string>
     <string name="live_feed_artist">Artist</string>
     <string name="live_feed_album">Album</string>
