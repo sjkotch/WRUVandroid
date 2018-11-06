@@ -34,5 +34,9 @@
     <!-- Strings for activity_schedule.xml -->
 
     <!-- Strings for menu_nav.xml -->
+    <string name="nav_stream">Stream</string>
+    <string name="nav_schedule">DJ Schedule</string>
+    <string name="nav_livefeed">Live Feed</string>
+    <string name="nav_chat">Chat The DJ</string>
 
 </resources>
