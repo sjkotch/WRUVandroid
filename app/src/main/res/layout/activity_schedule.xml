@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pageLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <CalendarView
-        android:id="@+id/calendarLayout"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="58dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/pageHeader"
@@ -21,19 +19,74 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
-
         <TextView
             android:id="@+id/txtPageTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:text="@string/title_schedule"
             android:textColor="@color/fontWhite"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/pageHeader"
-            app:layout_constraintLeft_toRightOf="@+id/pageHeader"
+            app:layout_constraintLeft_toLeftOf="@+id/pageHeader"
             app:layout_constraintTop_toTopOf="@+id/pageHeader" />
 
-    </CalendarView>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/calLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="58dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+
+        <CalendarView
+            android:id="@+id/calendarLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/navBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/fontBlack"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/navChat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Chat" />
+
+            <Button
+                android:id="@+id/navSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="90dp"
+                android:text="Schedule" />
+
+            <Button
+                android:id="@+id/navLiveFeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginLeft="90dp"
+                android:text="Live Feed" />
+
+            <Button
+                android:id="@+id/navStream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stream" />
+        </android.support.design.widget.BottomNavigationView>
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
