@@ -3,7 +3,9 @@ package com.wruv.wruvandroid;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -11,6 +13,7 @@ import android.widget.CalendarView;
 //        GET http://wruv.creek.fm/api/schedule;
 
 public class Schedule extends AppCompatActivity {
+    private static final String TAG = "Schedule";
 
     CalendarView calendarView;
 
@@ -25,6 +28,17 @@ public class Schedule extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
 
         calendarView = (CalendarView) findViewById(R.id.calendarLayout);
+
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+                Log.d(TAG,"onSelectedDayChange" + dayOfMonth + "/" + month + "/"+year);
+                String date = dayOfMonth + "/" + month + "/"+year;
+                Intent intent = new Intent(Schedule.this, ScheduleDay.class);
+                intent.putExtra("date", date);
+                startActivity(intent);
+            }
+        });
 
         navStream = (Button) findViewById(R.id.navStream);
         navLiveFeed = (Button) findViewById(R.id.navLiveFeed);

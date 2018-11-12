@@ -22,6 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Schedule"></activity>
+        <activity android:name=".ScheduleDay"></activity>
 
     </application>
 
