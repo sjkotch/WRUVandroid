@@ -217,6 +217,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
 <<<<<<< HEAD
+<<<<<<< HEAD
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
@@ -229,14 +230,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.994" />
 =======
+=======
+        android:layout_marginTop="8dp"
+>>>>>>> 769f46d... [FIX] send button constraints && strings.xml updated
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Send"
+        android:layout_marginBottom="8dp"
+        android:text="@string/send_button_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD
         tools:layout_editor_absoluteY="537dp" />
 >>>>>>> 3b78ca1... [ADD] UI components to Chat the dj page
+=======
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.994" />
+>>>>>>> 769f46d... [FIX] send button constraints && strings.xml updated
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
