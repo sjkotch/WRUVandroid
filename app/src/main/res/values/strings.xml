@@ -6,7 +6,6 @@
 
     <!-- Strings for activity_live_feed.xml -->
     <string name="title_live_feed">Live Feed</string>
-    <string name="title_chat_the_dj">Chat the DJ</string>
     <string name="live_feed_song">Song Name</string>
     <string name="live_feed_artist">Artist</string>
     <string name="live_feed_album">Album</string>
@@ -32,7 +31,10 @@
     <!-- Strings for activity_chat.xml -->
     <string name="title_chat_the_dj">Chat the DJ</string>
     <string name="send_button_text">Send</string>
+<<<<<<< HEAD
     <string name="message">Enter Message</string>
+=======
+>>>>>>> ce0f4a2... [FIX] send button constraints && strings.xml updated
 
     <!-- Strings for activity_schedule.xml -->
     <string name="title_schedule">Schedule</string>
