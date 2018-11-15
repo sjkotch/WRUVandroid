@@ -2,76 +2,165 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pageLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintBottom_toTopOf="parent"
     tools:context=".Home">
 
-    <ImageView
-        android:id="@+id/album_art"
-        android:layout_width="314dp"
-        android:layout_height="0dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="38dp"
-        android:layout_marginLeft="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:layout_marginBottom="70dp"
-        android:cropToPadding="true"
-        android:src="@drawable/themarias"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/navBarLayout">
 
-    <ImageView
-        android:id="@+id/wruv_icon"
-        android:layout_width="121dp"
-        android:layout_height="76dp"
-        android:layout_gravity="center"
-        android:layout_marginStart="38dp"
-        android:layout_marginLeft="38dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:cropToPadding="true"
-        android:src="@drawable/wruv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        <ImageView
+            android:id="@+id/album_art"
+            android:layout_width="314dp"
+            android:layout_height="314dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:cropToPadding="true"
+            android:src="@drawable/themarias"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/wruv_icon" />
 
-    <TextView
-        android:id="@+id/artist"
-        android:layout_width="185dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="130dp"
+        <ImageView
+            android:id="@+id/wruv_icon"
+            android:layout_width="121dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="38dp"
+            android:layout_marginLeft="38dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginRight="38dp"
+            android:cropToPadding="true"
+            android:src="@drawable/wruv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:text="The Marias"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/album_art"
-        app:layout_constraintVertical_bias="0.813" />
+        <TextView
+            android:id="@+id/artist"
+            android:layout_width="185dp"
+            android:layout_height="23dp"
 
-    <TextView
-        android:id="@+id/song"
-        android:layout_width="146dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="130dp"
-        android:text="I Don't Know You"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/album_art"
-        app:layout_constraintHorizontal_bias="0.01"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+            android:text="The Marias"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintLeft_toLeftOf="@+id/song"
+            app:layout_constraintTop_toBottomOf="@+id/song" />
+
+        <TextView
+            android:id="@+id/song"
+            android:layout_width="146dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginLeft="44dp"
+            android:layout_marginTop="5dp"
+            android:text="I Don't Know You"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintEnd_toStartOf="@+id/album_art"
+            app:layout_constraintHorizontal_bias="0.01"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/album_art" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/navBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:background="@color/fontBlack"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/black">
+
+            <ImageButton
+                android:id="@+id/navChat"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="17dp"
+                android:background="@android:color/background_dark"
+                android:src="@drawable/chat"
+                android:tint="@color/fontWhite" />
+
+            <TextView
+                android:id="@+id/navTxtChat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginRight="20dp"
+                android:text="@string/nav_chat"
+                android:textColor="@color/fontWhite" />
+
+            <ImageButton
+                android:id="@+id/navSchedule"
+                android:layout_width="34dp"
+                android:layout_height="32dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="2dp"
+                android:layout_marginRight="111dp"
+                android:background="@android:color/background_dark"
+                android:src="@drawable/clock"
+                android:text="Schedule"
+                android:tint="@color/fontWhite" />
+
+            <TextView
+                android:id="@+id/navTxtSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginRight="99dp"
+                android:text="@string/nav_schedule"
+                android:textColor="@color/fontWhite" />
+
+            <ImageButton
+                android:id="@+id/navLiveFeed"
+                android:layout_width="34dp"
+                android:layout_height="32dp"
+                android:layout_gravity="left"
+                android:layout_marginLeft="113dp"
+                android:layout_marginTop="2dp"
+                android:background="@android:color/background_dark"
+                android:src="@drawable/bullet_list"
+                android:text="Live Feed"
+                android:tint="@color/fontWhite" />
+
+            <TextView
+                android:id="@+id/navTxtLivefeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="100dp"
+                android:text="@string/nav_livefeed"
+                android:textColor="@color/fontWhite" />
+
+            <ImageButton
+                android:id="@+id/navStream"
+                android:layout_width="33dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/background_dark"
+                android:src="@drawable/sound_bars_pulse"
+                android:text="Stream"
+                android:tint="@color/accentRed" />
+
+            <TextView
+                android:id="@+id/navTxtStream"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="12dp"
+                android:text="@string/nav_stream"
+                android:textColor="@color/accentRed" />
+        </android.support.design.widget.BottomNavigationView>
+    </android.support.constraint.ConstraintLayout>
 
 
 </android.support.constraint.ConstraintLayout>

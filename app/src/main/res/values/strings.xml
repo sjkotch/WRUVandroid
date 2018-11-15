@@ -32,14 +32,15 @@
     <!-- Strings for activity_chat.xml -->
     <string name="title_chat_the_dj">Chat the DJ</string>
     <string name="send_button_text">Send</string>
+    <string name="message">Enter Message</string>
 
     <!-- Strings for activity_schedule.xml -->
     <string name="title_schedule">Schedule</string>
 
     <!-- Strings for menu_nav.xml -->
     <string name="nav_stream">Stream</string>
-    <string name="nav_schedule">DJ Schedule</string>
+    <string name="nav_schedule">Schedule</string>
     <string name="nav_livefeed">Live Feed</string>
-    <string name="nav_chat">Chat The DJ</string>
+    <string name="nav_chat">Chat</string>
 
 </resources>

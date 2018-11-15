@@ -16,12 +16,6 @@ public class LiveFeed extends AppCompatActivity {
 
     //XML elements
     private ImageButton buttFilter;
-    private ImageButton buttMenu;
-    private Button navStream;
-    private Button navLiveFeed;
-    private Button navSchedule;
-    private Button navChat;
-
 
     //Variables
     Boolean songsChecked = true;
@@ -36,30 +30,32 @@ public class LiveFeed extends AppCompatActivity {
         //Setting buttons to corresponding ID's
         buttFilter = (ImageButton) findViewById(R.id.buttFilter);
 
-        navStream = (Button) findViewById(R.id.navStream);
-        navLiveFeed = (Button) findViewById(R.id.navLiveFeed);
-        navSchedule = (Button) findViewById(R.id.navSchedule);
-        navChat = (Button) findViewById(R.id.navChat);
+        ImageButton navStream = (ImageButton) findViewById(R.id.navStream);
+        ImageButton navLiveFeed = (ImageButton) findViewById(R.id.navLiveFeed);
+        ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
+        ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
 
         navStream.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LiveFeed.this, Home.class);
                 startActivity(i);
+                overridePendingTransition(0,0);
             }
         });
-        navLiveFeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(LiveFeed.this, LiveFeed.class);
-                startActivity(i);
-            }
-        });
+//        navLiveFeed.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(LiveFeed.this, LiveFeed.class);
+//                startActivity(i);
+//            }
+//        });
         navSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LiveFeed.this, Schedule.class);
                 startActivity(i);
+                overridePendingTransition(0,0);
             }
         });
         navChat.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +63,7 @@ public class LiveFeed extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(LiveFeed.this, ChatTheDJ.class);
                 startActivity(i);
+                overridePendingTransition(0,0);
             }
         });
 
