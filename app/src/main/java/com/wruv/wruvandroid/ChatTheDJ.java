@@ -50,5 +50,4 @@ public class ChatTheDJ extends AppCompatActivity {
 //            }
 //        });
     }
-
 }
