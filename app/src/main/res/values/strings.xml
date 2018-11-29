@@ -2,6 +2,11 @@
     <!-- App Title -->
     <string name="app_name">WRUVandroid</string>
 
+    <!-- back4app -->
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+    <string name="back4app_app_id">8b9JgECsLcBl7BqZwUlPpnlrMKIejkd7iCgk5Xx5</string>
+    <string name="back4app_client_key">yeJ60j6ti6vca4quzfUBo6rMBf2PIq5wI83cZk3g</string>
+
     <!-- Strings for activity_home.xml -->
 
     <!-- Strings for activity_live_feed.xml -->
