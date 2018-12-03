@@ -38,6 +38,7 @@
     <string name="title_chat_the_dj">Chat the DJ</string>
     <string name="send_button_text">Send</string>
     <string name="message">Enter Message</string>
+    <string name="chat_server_uri">http://chat.barbershop.wruv.org/</string>
 
     <!-- Strings for activity_schedule.xml -->
     <string name="title_schedule">Schedule</string>

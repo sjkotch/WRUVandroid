@@ -37,6 +37,9 @@
         <meta-data
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
+        <meta-data
+            android:name="com.chat.SERVER_URI"
+            android:value="@string/chat_server_uri" />
 
     </application>
 
