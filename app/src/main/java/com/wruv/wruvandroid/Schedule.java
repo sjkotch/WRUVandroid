@@ -3,6 +3,7 @@ package com.wruv.wruvandroid;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +14,17 @@ import android.widget.CalendarView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 //        GET http://wruv.creek.fm/api/schedule;
 
@@ -34,6 +41,8 @@ public class Schedule extends AppCompatActivity {
     String songName = tokens[1];
 
     CalendarView calendarView;
+
+    private List<ParseObject> scheduleArray = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +71,7 @@ public class Schedule extends AppCompatActivity {
                 String date = dayOfMonth + "/" + month + "/"+year;
                 Intent intent = new Intent(Schedule.this, ScheduleDay.class);
                 intent.putExtra("date", date);
+                intent.putParcelableArrayListExtra("scheduleArray", (ArrayList<? extends Parcelable>) scheduleArray);
                 startActivity(intent);
             }
         });
@@ -74,19 +84,9 @@ public class Schedule extends AppCompatActivity {
                 .build()
         );
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Schedule");
-        query.getInBackground("sj69I01ndC", new GetCallback<ParseObject>() {
-            public void done(ParseObject object, ParseException e) {
-                if (e == null) {
-                    // object will be your game score
-                    String playerName = object.getString("dj");
-                    Log.d(TAG,"onQuery " + playerName);
+        //query schedule class from back4app
+        querySchedule();
 
-                } else {
-                    // something went wrong
-                }
-            }
-        });
 
         navStream.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,4 +132,22 @@ public class Schedule extends AppCompatActivity {
 
     }
 
+    void querySchedule() {
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Schedule");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> objects, ParseException error) {
+                if (error == null)  {
+                    scheduleArray = objects;
+                    for(ParseObject o : objects) {
+                        Log.d(TAG, "DJ : " + o.getString("dj"));
+                        Log.d(TAG, "DJ : " + o.getObjectId());
+
+                    }
+                    // error
+                    } else {
+                }
+            }
+        });
+    }
 }
