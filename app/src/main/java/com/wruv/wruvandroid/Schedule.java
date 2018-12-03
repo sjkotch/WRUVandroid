@@ -4,12 +4,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.parse.GetCallback;
 import com.parse.Parse;
@@ -21,6 +23,15 @@ import com.parse.ParseQuery;
 
 public class Schedule extends AppCompatActivity {
     private static final String TAG = "Schedule";
+
+    private String audioFile;
+    private Handler handler = new Handler();
+    private boolean pCurrentlyPlaying = false;
+
+
+    public static final String AUDIO_FILE_NAME = "C:/Users/leann/AndroidStudioProjects/WRUVandroid/MusicFolder/Marias_IDontKnowYou.mp3";
+    String[] tokens = AUDIO_FILE_NAME.split(".+?/(?=[^/]+$)");
+    String songName = tokens[1];
 
     CalendarView calendarView;
 
@@ -35,6 +46,14 @@ public class Schedule extends AppCompatActivity {
         ImageButton navLiveFeed = (ImageButton) findViewById(R.id.navLiveFeed);
         ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
         ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
+        final ImageButton playStop = (ImageButton) findViewById(R.id.playStop);
+        playStop.setImageResource(R.drawable.play);
+
+
+        this.getIntent().putExtra(AUDIO_FILE_NAME,AUDIO_FILE_NAME);
+        audioFile = this.getIntent().getStringExtra(songName);
+        ((TextView)findViewById(R.id.now_playing_text)).setText(songName);
+
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -100,6 +119,17 @@ public class Schedule extends AppCompatActivity {
                 overridePendingTransition(0,0);
             }
         });
+
+        playStop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int image = pCurrentlyPlaying ? R.drawable.stop : R.drawable.play;
+                playStop.setImageResource(image);
+                pCurrentlyPlaying = !pCurrentlyPlaying ;
+
+            }
+        });
+
     }
 
 }
