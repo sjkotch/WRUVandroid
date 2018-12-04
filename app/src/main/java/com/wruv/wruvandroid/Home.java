@@ -2,6 +2,8 @@ package com.wruv.wruvandroid;
 
 import android.content.Intent;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +12,9 @@ import android.widget.ImageButton;
 import android.os.Handler;
 
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.IOException;
 
 
 public class Home extends AppCompatActivity {
@@ -33,17 +37,15 @@ public class Home extends AppCompatActivity {
         ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
         ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
 
+        final String url = "http://icecast.uvm.edu:8005/wruv_fm_128"; // your URL here
+        final MediaPlayer mediaPlayer = new MediaPlayer();
+
         final ImageButton playStop = (ImageButton) findViewById(R.id.playStop);
         playStop.setImageResource(R.drawable.play);
-
 
         this.getIntent().putExtra(AUDIO_FILE_NAME,AUDIO_FILE_NAME);
         audioFile = this.getIntent().getStringExtra(songName);
         ((TextView)findViewById(R.id.now_playing_text)).setText(songName);
-
-
-
-
 
 //        navStream.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -52,6 +54,7 @@ public class Home extends AppCompatActivity {
 //                startActivity(i);
 //            }
 //        });
+
         navLiveFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,10 +83,30 @@ public class Home extends AppCompatActivity {
         playStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int image = pCurrentlyPlaying ? R.drawable.stop : R.drawable.play;
-                playStop.setImageResource(image);
-                pCurrentlyPlaying = !pCurrentlyPlaying ;
 
+                if(!mediaPlayer.isPlaying()){
+                    Toast.makeText(getApplicationContext(), "Starting stream",Toast.LENGTH_SHORT).show();
+                    try {
+                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+                        mediaPlayer.setLooping(true);
+                        try {
+                            mediaPlayer.setDataSource(url);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        mediaPlayer.prepare(); // might take long! (for buffering, etc)
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    mediaPlayer.start();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Stopping stream",Toast.LENGTH_SHORT).show();
+                    mediaPlayer.stop();
+                    mediaPlayer.reset();
+                }
+                int image = pCurrentlyPlaying ? R.drawable.play : R.drawable.stop;
+                playStop.setImageResource(image);
+                pCurrentlyPlaying = !pCurrentlyPlaying;
             }
         });
 
