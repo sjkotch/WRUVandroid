@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -105,7 +106,7 @@ public class Home extends AppCompatActivity {
                     mediaPlayer.reset();
                 }
                 int image = pCurrentlyPlaying ? R.drawable.play : R.drawable.stop;
-                playStop.setImageResource(image);
+                playStop.setForeground(getDrawable(image));
                 pCurrentlyPlaying = !pCurrentlyPlaying;
             }
         });
