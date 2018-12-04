@@ -7,6 +7,14 @@
     <string name="back4app_app_id">8b9JgECsLcBl7BqZwUlPpnlrMKIejkd7iCgk5Xx5</string>
     <string name="back4app_client_key">yeJ60j6ti6vca4quzfUBo6rMBf2PIq5wI83cZk3g</string>
 
+    <string name="schedule_class">Schedule</string>
+    <string name="schedule_DJ">dj</string>
+    <string name="schedule_Show">show_name</string>
+    <string name="schedule_Description">description</string>
+    <string name="schedule_WeekDay">day_of_week</string>
+    <string name="schedule_StartTime">start_time</string>
+    <string name="schedule_EndTime">end_time</string>
+
     <!-- Strings for activity_home.xml -->
 
     <!-- Strings for activity_live_feed.xml -->
@@ -42,6 +50,9 @@
 
     <!-- Strings for activity_schedule.xml -->
     <string name="title_schedule">Schedule</string>
+    <string name="schedule_show">Show</string>
+    <string name="schedule_dj">DJ</string>
+    <string name="schedule_description">Desctiption</string>
 
     <!-- Strings for menu_nav.xml -->
     <string name="nav_stream">Stream</string>

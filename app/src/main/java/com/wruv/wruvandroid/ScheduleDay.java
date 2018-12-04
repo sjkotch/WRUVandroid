@@ -3,11 +3,38 @@ package com.wruv.wruvandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
-public class ScheduleDay extends AppCompatActivity {
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class ScheduleDay extends AppCompatActivity{
+    private static final String TAG = "ScheduleDay";
 
     private TextView theDate;
+    private RecyclerView mRecyclerView;
+    private ScheduleRecyclerAdaptor adapter;
+    private ArrayList<String> mData = new ArrayList<>();
+
+    private ArrayList<ArrayList<String>> scheduleData = new ArrayList<ArrayList<String>>();
+
+    private RecyclerView.LayoutManager mLayoutManager;
+
+    private List<ParseObject>scheduleArray = new ArrayList<>();
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +44,29 @@ public class ScheduleDay extends AppCompatActivity {
 
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
+
+        scheduleArray = incomingIntent.getParcelableArrayListExtra("scheduleArray");
+
+
         theDate.setText(date);
 
+        mRecyclerView = (RecyclerView) findViewById(R.id.schedule_recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+
+        // set up the RecyclerView
+        RecyclerView recyclerView = findViewById(R.id.schedule_recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new ScheduleRecyclerAdaptor(this, scheduleArray);
+        recyclerView.setAdapter(adapter);
+        Log.d(TAG,"Finish recyclerView");
+
+
+
     }
+
 }

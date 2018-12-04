@@ -7,10 +7,53 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/playerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@android:color/black"
+
+        app:layout_constraintBottom_toTopOf="@+id/navBarLayout">
+
+        <TextView
+            android:id="@+id/now_playing_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="Now playing.."
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintLeft_toRightOf="@+id/musicPlayer" />
+
+        <ImageButton
+            android:id="@+id/playStop"
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:layout_gravity="bottom"
+
+
+            android:foreground="@drawable/play"
+            android:paddingTop="10dp"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/musicPlayer"
+            android:layout_width="33dp"
+            android:layout_height="43dp"
+            android:layout_gravity="bottom"
+
+            android:paddingTop="5dp"
+            android:src="@drawable/music_player" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/sendLayout"
         android:layout_width="match_parent"
         android:layout_height="65dp"
-        app:layout_constraintBottom_toTopOf="@+id/navBarLayout">
+        app:layout_constraintBottom_toTopOf="@+id/playerLayout">
 
 
         <EditText
