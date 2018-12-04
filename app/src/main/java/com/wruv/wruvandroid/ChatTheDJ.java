@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Button;
+
 import java.util.ArrayList;
 
 import okhttp3.OkHttpClient;
@@ -22,6 +23,7 @@ public class ChatTheDJ extends AppCompatActivity {
     private OkHttpClient client;
 
     private final class ChatMessage{
+
         private String body;
         private String sender;
         private String date;
@@ -89,6 +91,7 @@ public class ChatTheDJ extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         initConnection();
         client = new OkHttpClient();
         super.onCreate(savedInstanceState);
