@@ -10,8 +10,13 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_margin="10dp"
+
             android:hint="Date"
-            android:textSize="25sp" />
+            android:layout_marginTop="20dp"
+
+            android:textSize="25sp"
+            tools:layout_editor_absoluteX="10dp"
+            tools:layout_editor_absoluteY="10dp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/schedule_recycler_view"

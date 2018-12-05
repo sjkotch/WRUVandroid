@@ -25,6 +25,7 @@ import com.parse.ParseQuery;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
 
 //        GET http://wruv.creek.fm/api/schedule;
 
@@ -34,6 +35,7 @@ public class Schedule extends AppCompatActivity {
     private String audioFile;
     private Handler handler = new Handler();
     private boolean pCurrentlyPlaying = false;
+
 
 
     public static final String AUDIO_FILE_NAME = "C:/Users/leann/AndroidStudioProjects/WRUVandroid/MusicFolder/Marias_IDontKnowYou.mp3";
@@ -68,9 +70,11 @@ public class Schedule extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 Log.d(TAG,"onSelectedDayChange" + dayOfMonth + "/" + month + "/"+year);
-                String date = dayOfMonth + "/" + month + "/"+year;
+                String date = month + "/" + dayOfMonth + "/" +year;
+                String textDate = getTextDate(month, dayOfMonth, year);
                 Intent intent = new Intent(Schedule.this, ScheduleDay.class);
                 intent.putExtra("date", date);
+                intent.putExtra("textDate", textDate);
                 intent.putParcelableArrayListExtra("scheduleArray", (ArrayList<? extends Parcelable>) scheduleArray);
                 startActivity(intent);
             }
@@ -149,5 +153,38 @@ public class Schedule extends AppCompatActivity {
                 }
             }
         });
+    }
+    public String getTextDate(int month, int dayOfMonth, int year){
+        String newMonth = Integer.toString(month);
+        String returnedString ="";
+        switch(newMonth){
+            case "01": returnedString = returnedString + "January";
+                break;
+            case "02": returnedString = returnedString + "February";
+                break;
+            case "03": returnedString = returnedString + "March";
+                break;
+            case "04": returnedString = returnedString + "April";
+                break;
+            case "05": returnedString = returnedString + "May";
+                break;
+            case "06": returnedString = returnedString + "June";
+                break;
+            case "07": returnedString = returnedString +"July";
+                break;
+            case "08": returnedString = returnedString +"August";
+                break;
+            case "09": returnedString = returnedString +"September";
+                break;
+            case "10": returnedString = returnedString +"October";
+                break;
+            case "11": returnedString = returnedString +"November";
+                break;
+            case "12": returnedString = returnedString +"December";
+                break;
+
+        }
+        returnedString = returnedString + " " + dayOfMonth + ", " + year;
+        return returnedString;
     }
 }
