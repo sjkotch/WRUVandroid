@@ -36,7 +36,10 @@
         <meta-data
             android:name="com.parse.CLIENT_KEY"
             android:value="@string/back4app_client_key" />
-
+        <service
+            android:name="AudioService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />

@@ -17,12 +17,7 @@ import android.widget.Toast;
 public class LiveFeed extends AppCompatActivity {
     private String audioFile;
     private Handler handler = new Handler();
-    private boolean pCurrentlyPlaying = false;
-
-
-    public static final String AUDIO_FILE_NAME = "C:/Users/leann/AndroidStudioProjects/WRUVandroid/MusicFolder/Marias_IDontKnowYou.mp3";
-    String[] tokens = AUDIO_FILE_NAME.split(".+?/(?=[^/]+$)");
-    String songName = tokens[1];
+    private boolean pCurrentlyPlaying;
 
     //XML elements
     private ImageButton buttFilter;
@@ -37,40 +32,39 @@ public class LiveFeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_feed);
 
+        if(getIntent().getExtras() != null){
+            pCurrentlyPlaying = getIntent().getExtras().getBoolean("pCurrentlyPlaying");
+        }
         //Setting buttons to corresponding ID's
         buttFilter = (ImageButton) findViewById(R.id.buttFilter);
 
         ImageButton navStream = (ImageButton) findViewById(R.id.navStream);
-        ImageButton navLiveFeed = (ImageButton) findViewById(R.id.navLiveFeed);
         ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
         ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
         final ImageButton playStop = (ImageButton) findViewById(R.id.playStop);
-        playStop.setImageResource(R.drawable.play);
 
+        if(pCurrentlyPlaying){
+            playStop.setForeground(getDrawable(R.drawable.stop));
+        } else {
+            playStop.setForeground(getDrawable(R.drawable.play));
+        }
 
-        this.getIntent().putExtra(AUDIO_FILE_NAME,AUDIO_FILE_NAME);
-        audioFile = this.getIntent().getStringExtra(songName);
-        ((TextView)findViewById(R.id.now_playing_text)).setText(songName);
+        ((TextView)findViewById(R.id.now_playing_text)).setText("WRUV: Your Better Alternative");
 
         navStream.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LiveFeed.this, Home.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
             }
         });
-//        navLiveFeed.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(LiveFeed.this, LiveFeed.class);
-//                startActivity(i);
-//            }
-//        });
         navSchedule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LiveFeed.this, Schedule.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
             }
@@ -79,22 +73,11 @@ public class LiveFeed extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(LiveFeed.this, ChatTheDJ.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
             }
         });
-
-        playStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int image = pCurrentlyPlaying ? R.drawable.stop : R.drawable.play;
-                playStop.setImageResource(image);
-                pCurrentlyPlaying = !pCurrentlyPlaying ;
-
-            }
-        });
-
-
 
         //OnClickListener for Filter Button
         buttFilter.setOnClickListener(new View.OnClickListener() {

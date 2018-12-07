@@ -32,7 +32,7 @@ import java.util.List;
 public class ScheduleDay extends AppCompatActivity{
     private static final String TAG = "ScheduleDay";
 
-
+    private boolean pCurrentlyPlaying;
 
     private TextView theDate;
     private RecyclerView mRecyclerView;
@@ -45,9 +45,12 @@ public class ScheduleDay extends AppCompatActivity{
 
     private List<ParseObject>scheduleArray = new ArrayList<>();
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(getIntent().getExtras() != null){
+            pCurrentlyPlaying = getIntent().getExtras().getBoolean("pCurrentlyPlaying");
+        }
         //save and display date, create table cell
         setContentView(R.layout.schedule_day);
         theDate = (TextView) findViewById(R.id.date);

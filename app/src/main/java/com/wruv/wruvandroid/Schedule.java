@@ -34,13 +34,7 @@ public class Schedule extends AppCompatActivity {
 
     private String audioFile;
     private Handler handler = new Handler();
-    private boolean pCurrentlyPlaying = false;
-
-
-
-    public static final String AUDIO_FILE_NAME = "C:/Users/leann/AndroidStudioProjects/WRUVandroid/MusicFolder/Marias_IDontKnowYou.mp3";
-    String[] tokens = AUDIO_FILE_NAME.split(".+?/(?=[^/]+$)");
-    String songName = tokens[1];
+    private boolean pCurrentlyPlaying;
 
     CalendarView calendarView;
 
@@ -51,20 +45,16 @@ public class Schedule extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
 
+        if(getIntent().getExtras() != null){
+            pCurrentlyPlaying = getIntent().getExtras().getBoolean("pCurrentlyPlaying");
+        }
+
         calendarView = (CalendarView) findViewById(R.id.calendarLayout);
 
         ImageButton navStream = (ImageButton) findViewById(R.id.navStream);
         ImageButton navLiveFeed = (ImageButton) findViewById(R.id.navLiveFeed);
         ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
         ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
-        final ImageButton playStop = (ImageButton) findViewById(R.id.playStop);
-        playStop.setImageResource(R.drawable.play);
-
-
-        this.getIntent().putExtra(AUDIO_FILE_NAME,AUDIO_FILE_NAME);
-        audioFile = this.getIntent().getStringExtra(songName);
-        ((TextView)findViewById(R.id.now_playing_text)).setText(songName);
-
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -76,6 +66,7 @@ public class Schedule extends AppCompatActivity {
                 intent.putExtra("date", date);
                 intent.putExtra("textDate", textDate);
                 intent.putParcelableArrayListExtra("scheduleArray", (ArrayList<? extends Parcelable>) scheduleArray);
+                intent.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(intent);
             }
         });
@@ -96,6 +87,7 @@ public class Schedule extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Schedule.this, Home.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
             }
@@ -104,33 +96,18 @@ public class Schedule extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Schedule.this, LiveFeed.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
             }
         });
-//        navSchedule.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(Schedule.this, Schedule.class);
-//                startActivity(i);
-//            }
-//        });
         navChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Schedule.this, ChatTheDJ.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
-            }
-        });
-
-        playStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int image = pCurrentlyPlaying ? R.drawable.stop : R.drawable.play;
-                playStop.setImageResource(image);
-                pCurrentlyPlaying = !pCurrentlyPlaying ;
-
             }
         });
 
