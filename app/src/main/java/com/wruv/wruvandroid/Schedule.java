@@ -53,7 +53,6 @@ public class Schedule extends AppCompatActivity {
 
         ImageButton navStream = (ImageButton) findViewById(R.id.navStream);
         ImageButton navLiveFeed = (ImageButton) findViewById(R.id.navLiveFeed);
-        ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
         ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {

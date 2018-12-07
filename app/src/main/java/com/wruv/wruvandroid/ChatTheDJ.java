@@ -9,8 +9,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ChatTheDJ extends AppCompatActivity {
-    private String audioFile;
-    private Handler handler = new Handler();
     private boolean pCurrentlyPlaying;
 
     @Override

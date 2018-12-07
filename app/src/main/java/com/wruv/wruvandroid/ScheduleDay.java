@@ -71,15 +71,12 @@ public class ScheduleDay extends AppCompatActivity{
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.schedule_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ScheduleRecyclerAdaptor(this, scheduleArray);
         recyclerView.setAdapter(adapter);
         Log.d(TAG,"Finish recyclerView");
-
-
 
     }
 

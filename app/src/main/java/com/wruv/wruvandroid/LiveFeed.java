@@ -35,21 +35,10 @@ public class LiveFeed extends AppCompatActivity {
         if(getIntent().getExtras() != null){
             pCurrentlyPlaying = getIntent().getExtras().getBoolean("pCurrentlyPlaying");
         }
-        //Setting buttons to corresponding ID's
-        buttFilter = (ImageButton) findViewById(R.id.buttFilter);
 
         ImageButton navStream = (ImageButton) findViewById(R.id.navStream);
         ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
         ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
-        final ImageButton playStop = (ImageButton) findViewById(R.id.playStop);
-
-        if(pCurrentlyPlaying){
-            playStop.setForeground(getDrawable(R.drawable.stop));
-        } else {
-            playStop.setForeground(getDrawable(R.drawable.play));
-        }
-
-        ((TextView)findViewById(R.id.now_playing_text)).setText("WRUV: Your Better Alternative");
 
         navStream.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,28 +67,6 @@ public class LiveFeed extends AppCompatActivity {
                 overridePendingTransition(0,0);
             }
         });
-
-        //OnClickListener for Filter Button
-        buttFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Creating the instance of PopupMenu
-                PopupMenu popup = new PopupMenu(LiveFeed.this, buttFilter);
-                //Inflating the Popup using xml file
-                popup.getMenuInflater()
-                        .inflate(R.menu.menu_filter_live_feed, popup.getMenu());
-
-                //registering popup with OnMenuItemClickListener
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-                        item.setChecked(!item.isChecked());
-                        return true;
-                    }
-                });
-
-                popup.show(); //showing popup menu
-            }
-        }); //closing the setOnClickListener method
 
     }
 

@@ -27,14 +27,7 @@ import java.util.Objects;
 public class Home extends AppCompatActivity {
 
     private AudioServiceBinder audioServiceBinder = null;
-
-    private Handler audioProgressUpdateHandler = null;
-
-    // Show played audio progress.
-    private ProgressBar backgroundAudioProgress;
-
-    private TextView audioFileUrlTextView;
-
+    
     // This service connection object is the bridge between activity and background service.
     private ServiceConnection serviceConnection = new ServiceConnection() {
         @Override
@@ -49,10 +42,7 @@ public class Home extends AppCompatActivity {
         }
     };
 
-    private String audioFile;
-    private Handler handler = new Handler();
     private boolean pCurrentlyPlaying;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +54,6 @@ public class Home extends AppCompatActivity {
 
         final String audioFileUrl = "http://icecast.uvm.edu:8005/wruv_fm_48";
 
-        ImageButton navStream = (ImageButton) findViewById(R.id.navStream);
         ImageButton navLiveFeed = (ImageButton) findViewById(R.id.navLiveFeed);
         ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
         ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
