@@ -7,6 +7,59 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/navBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageButton
+            android:id="@+id/navChat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/nav_chat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/navSchedule"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/navSchedule"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/nav_schedule"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/navLiveFeed"
+            app:layout_constraintRight_toLeftOf="@+id/navChat"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/navLiveFeed"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:background="@drawable/nav_live"
+            android:backgroundTint="@color/accentRed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/navStream"
+            app:layout_constraintRight_toLeftOf="@+id/navSchedule"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/navStream"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/nav_stream"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/navLiveFeed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="58dp">
@@ -18,18 +71,6 @@
             android:background="@android:color/background_dark"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
-
-        <ImageButton
-            android:id="@+id/buttFilter"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginRight="15dp"
-            android:background="@android:color/background_dark"
-            android:contentDescription="@string/filter_butt_description"
-            app:layout_constraintBottom_toBottomOf="@+id/pageHeader"
-            app:layout_constraintRight_toRightOf="@+id/pageHeader"
-            app:layout_constraintTop_toTopOf="@+id/pageHeader"
-            app:srcCompat="@drawable/filter" />
 
         <TextView
             android:id="@+id/txtPageTitle"
@@ -51,146 +92,12 @@
         android:layout_height="match_parent"
         android:layout_marginTop="58dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/navBarLayout"
         app:layout_constraintTop_toTopOf="@+id/headerLayout">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/liveFeedRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="508dp" />
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/errorLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="58dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/navBarLayout"
-        app:layout_constraintTop_toTopOf="@+id/headerLayout">
-
-        <ImageView
-            android:id="@+id/errorIcon"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="10dp"
-            android:contentDescription="@string/live_feed_error"
-            android:tint="@color/accentRed"
-            app:layout_constraintBottom_toTopOf="@+id/txtFeedError"
-            app:layout_constraintLeft_toLeftOf="@+id/txtFeedError"
-            app:layout_constraintRight_toRightOf="@+id/txtFeedError"
-            app:srcCompat="@drawable/error" />
-
-        <TextView
-            android:id="@+id/txtFeedError"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/live_feed_error"
-            android:textColor="@color/accentRed"
-            android:textSize="18sp"
-            android:textStyle="normal"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/navBarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:background="@color/fontBlack"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <android.support.design.widget.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/black">
-
-            <ImageButton
-                android:id="@+id/navChat"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="17dp"
-                android:background="@android:color/background_dark"
-                android:src="@drawable/chat"
-                android:tint="@color/fontWhite" />
-
-            <TextView
-                android:id="@+id/navTxtChat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_marginRight="20dp"
-                android:text="@string/nav_chat"
-                android:textColor="@color/fontWhite" />
-
-            <ImageButton
-                android:id="@+id/navSchedule"
-                android:layout_width="34dp"
-                android:layout_height="32dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="111dp"
-                android:background="@android:color/background_dark"
-                android:src="@drawable/clock"
-                android:text="Schedule"
-                android:tint="@color/fontWhite" />
-
-            <TextView
-                android:id="@+id/navTxtSchedule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_marginRight="99dp"
-                android:text="@string/nav_schedule"
-                android:textColor="@color/fontWhite" />
-
-            <ImageButton
-                android:id="@+id/navLiveFeed"
-                android:layout_width="34dp"
-                android:layout_height="32dp"
-                android:layout_gravity="left"
-                android:layout_marginLeft="113dp"
-                android:layout_marginTop="2dp"
-                android:background="@android:color/background_dark"
-                android:src="@drawable/bullet_list"
-                android:text="Live Feed"
-                android:tint="@color/accentRed" />
-
-            <TextView
-                android:id="@+id/navTxtLivefeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="100dp"
-                android:text="@string/nav_livefeed"
-                android:textColor="@color/accentRed" />
-
-            <ImageButton
-                android:id="@+id/navStream"
-                android:layout_width="33dp"
-                android:layout_height="28dp"
-                android:layout_marginLeft="19dp"
-                android:layout_marginTop="4dp"
-                android:background="@android:color/background_dark"
-                android:src="@drawable/sound_bars_pulse"
-                android:text="Stream"
-                android:tint="@color/fontWhite" />
-
-            <TextView
-                android:id="@+id/navTxtStream"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="12dp"
-                android:text="@string/nav_stream"
-                android:textColor="@color/fontWhite" />
-        </android.support.design.widget.BottomNavigationView>
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>
