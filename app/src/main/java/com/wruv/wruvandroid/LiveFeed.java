@@ -92,7 +92,7 @@ public class LiveFeed extends AppCompatActivity {
             }
         });
 
-        
+
         //Setting buttons to corresponding ID's
         buttFilter = (ImageButton) findViewById(R.id.buttFilter);
 
