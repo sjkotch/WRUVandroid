@@ -1,9 +1,13 @@
 package com.wruv.wruvandroid;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 
+import android.content.ServiceConnection;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.IBinder;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,54 +16,67 @@ import android.widget.ImageButton;
 
 import android.os.Handler;
 
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.Objects;
 
 
 public class Home extends AppCompatActivity {
 
-    private String audioFile;
-    private Handler handler = new Handler();
-    private boolean pCurrentlyPlaying = false;
+    private AudioServiceBinder audioServiceBinder = null;
+    
+    // This service connection object is the bridge between activity and background service.
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            // Cast and assign background service's onBind method returned iBander object.
+            audioServiceBinder = (AudioServiceBinder) iBinder;
+        }
 
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
 
-    public static final String AUDIO_FILE_NAME = "C:/Users/leann/AndroidStudioProjects/WRUVandroid/MusicFolder/Marias_IDontKnowYou.mp3";
-    String[] tokens = AUDIO_FILE_NAME.split(".+?/(?=[^/]+$)");
-    String songName = tokens[1];
+        }
+    };
+
+    private boolean pCurrentlyPlaying;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        ImageButton navStream = (ImageButton) findViewById(R.id.navStream);
+        // Bind background audio service when activity is created.
+        bindAudioService();
+
+        final String audioFileUrl = "http://icecast.uvm.edu:8005/wruv_fm_48";
+
         ImageButton navLiveFeed = (ImageButton) findViewById(R.id.navLiveFeed);
         ImageButton navSchedule = (ImageButton) findViewById(R.id.navSchedule);
         ImageButton navChat = (ImageButton) findViewById(R.id.navChat);
 
-        final String url = "http://icecast.uvm.edu:8005/wruv_fm_128"; // your URL here
-        final MediaPlayer mediaPlayer = new MediaPlayer();
-
         final ImageButton playStop = (ImageButton) findViewById(R.id.playStop);
-        playStop.setImageResource(R.drawable.play);
 
-        this.getIntent().putExtra(AUDIO_FILE_NAME,AUDIO_FILE_NAME);
-        audioFile = this.getIntent().getStringExtra(songName);
-        ((TextView)findViewById(R.id.now_playing_text)).setText(songName);
+        if(getIntent().getExtras() != null){
+            pCurrentlyPlaying = getIntent().getExtras().getBoolean("pCurrentlyPlaying");
+        }
 
-//        navStream.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent i = new Intent(Home.this, Home.class);
-//                startActivity(i);
-//            }
-//        });
+        if(pCurrentlyPlaying){
+            playStop.setForeground(getDrawable(R.drawable.stop));
+        } else {
+            playStop.setForeground(getDrawable(R.drawable.play));
+        }
+
+        ((TextView)findViewById(R.id.now_playing_text)).setText("WRUV: Your Better Alternative");
 
         navLiveFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Home.this, LiveFeed.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
             }
@@ -68,6 +85,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Home.this, Schedule.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
             }
@@ -76,6 +94,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Home.this, ChatTheDJ.class);
+                i.putExtra("pCurrentlyPlaying",pCurrentlyPlaying);
                 startActivity(i);
                 overridePendingTransition(0,0);
             }
@@ -84,35 +103,60 @@ public class Home extends AppCompatActivity {
         playStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!audioServiceBinder.isPlaying()) {
+                    Toast.makeText(getApplicationContext(), "Buffering...", Toast.LENGTH_LONG).show();
 
-                if(!mediaPlayer.isPlaying()){
-                    Toast.makeText(getApplicationContext(), "Starting stream",Toast.LENGTH_SHORT).show();
-                    try {
-                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                        mediaPlayer.setLooping(true);
-                        try {
-                            mediaPlayer.setDataSource(url);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        mediaPlayer.prepare(); // might take long! (for buffering, etc)
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    mediaPlayer.start();
+                    // Set web audio file url
+                    audioServiceBinder.setAudioFileUrl(audioFileUrl);
+
+                    // Web audio is a stream audio.
+                    audioServiceBinder.setStreamAudio(true);
+
+                    // Set application context.
+                    audioServiceBinder.setContext(getApplicationContext());
+
+                    // Start audio in background service.
+                    audioServiceBinder.startAudio();
+
+                    playStop.setForeground(getDrawable(R.drawable.stop));
+                    pCurrentlyPlaying = !pCurrentlyPlaying;
                 } else {
-                    Toast.makeText(getApplicationContext(), "Stopping stream",Toast.LENGTH_SHORT).show();
-                    mediaPlayer.stop();
-                    mediaPlayer.reset();
+                    audioServiceBinder.stopAudio();
+                    Toast.makeText(getApplicationContext(), "Stopping Stream.", Toast.LENGTH_LONG).show();
+                    playStop.setForeground(getDrawable(R.drawable.play));
+                    pCurrentlyPlaying = !pCurrentlyPlaying;
                 }
-                int image = pCurrentlyPlaying ? R.drawable.play : R.drawable.stop;
-                playStop.setForeground(getDrawable(image));
-                pCurrentlyPlaying = !pCurrentlyPlaying;
+
             }
         });
 
-
     }
 
+    // Bind background service with caller activity. Then this activity can use
+    // background service's AudioServiceBinder instance to invoke related methods.
+    private void bindAudioService()
+    {
+        if(audioServiceBinder == null) {
+            Intent intent = new Intent(Home.this, AudioService.class);
+
+            // Below code will invoke serviceConnection's onServiceConnected method.
+            bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE);
+        }
+    }
+
+    // Unbound background audio service with caller activity.
+    private void unBoundAudioService()
+    {
+        if(audioServiceBinder != null) {
+            unbindService(serviceConnection);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        // Unbound background audio service when activity is destroyed.
+        unBoundAudioService();
+        super.onDestroy();
+    }
 
 }

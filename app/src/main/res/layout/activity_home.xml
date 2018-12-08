@@ -15,12 +15,130 @@
         app:layout_constraintBottom_toTopOf="@+id/navBarLayout"
         app:layout_constraintRight_toRightOf="parent">
 
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/playerLayout"
+            android:layout_width="340dp"
+            android:layout_height="110dp"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="53dp"
+            android:background="@drawable/rounded_edges"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/album_art"
+            app:layout_constraintRight_toRightOf="@+id/album_art"
+            app:layout_constraintTop_toBottomOf="@+id/album_art">
+
+            <TextView
+                android:id="@+id/album"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="Superclean Vol. 1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBottom_toBottomOf="@+id/albumIcon"
+                app:layout_constraintLeft_toRightOf="@+id/albumIcon"
+                app:layout_constraintTop_toTopOf="@+id/albumIcon" />
+
+            <TextView
+                android:id="@+id/song"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:text="I Don't Know You"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBottom_toBottomOf="@+id/songIcon"
+                app:layout_constraintLeft_toRightOf="@+id/songIcon"
+                app:layout_constraintTop_toTopOf="@+id/songIcon" />
+
+            <TextView
+                android:id="@+id/artist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="15dp"
+                android:text="The Marias"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBottom_toBottomOf="@+id/artistIcon"
+                app:layout_constraintLeft_toRightOf="@+id/artistIcon"
+                app:layout_constraintTop_toTopOf="@+id/artistIcon" />
+
+            <ImageButton
+                android:id="@+id/playStop"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="bottom"
+
+
+                android:layout_marginRight="10dp"
+                android:background="@android:color/transparent"
+                android:cropToPadding="false"
+                android:foreground="@drawable/play"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/songIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="bottom"
+
+                android:layout_marginTop="5dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/music_player"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/artistIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="bottom"
+
+                android:layout_marginTop="10dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/user"
+                android:tint="@color/accentRed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/songIcon" />
+
+            <ImageView
+                android:id="@+id/albumIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="bottom"
+
+                android:layout_marginTop="10dp"
+                android:paddingTop="5dp"
+                android:src="@drawable/vynil"
+                android:tint="@color/accentRed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/artistIcon" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/now_playing_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+
+            android:text="Station Title"
+            android:textColor="@color/fontWhite"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toBottomOf="@+id/wruv_icon"
+            app:layout_constraintLeft_toRightOf="@+id/wruv_icon"
+            app:layout_constraintTop_toTopOf="@+id/wruv_icon" />
+
         <ImageView
             android:id="@+id/album_art"
-            android:layout_width="314dp"
-            android:layout_height="314dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:cropToPadding="true"
             android:src="@drawable/themarias"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,182 +147,67 @@
 
         <ImageView
             android:id="@+id/wruv_icon"
-            android:layout_width="121dp"
+            android:layout_width="90dp"
             android:layout_height="76dp"
             android:layout_gravity="center"
-            android:layout_marginStart="38dp"
-            android:layout_marginLeft="38dp"
-            android:layout_marginEnd="38dp"
-            android:layout_marginRight="38dp"
+            android:layout_marginTop="5dp"
             android:cropToPadding="true"
             android:src="@drawable/wruv"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/artist"
-            android:layout_width="185dp"
-            android:layout_height="23dp"
-
-            android:text="The Marias"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:layout_constraintLeft_toLeftOf="@+id/song"
-            app:layout_constraintTop_toBottomOf="@+id/song" />
-
-        <TextView
-            android:id="@+id/song"
-            android:layout_width="146dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginLeft="44dp"
-            android:layout_marginTop="5dp"
-            android:text="I Don't Know You"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:layout_constraintEnd_toStartOf="@+id/album_art"
-            app:layout_constraintHorizontal_bias="0.01"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/album_art" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/navBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:background="@color/fontBlack"
+        android:layout_height="45dp"
+        android:background="@android:color/background_dark"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <android.support.design.widget.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/black">
-
-            <ImageButton
-                android:id="@+id/navChat"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="17dp"
-                android:background="@android:color/background_dark"
-                android:src="@drawable/chat"
-                android:tint="@color/fontWhite" />
-
-            <TextView
-                android:id="@+id/navTxtChat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_marginRight="20dp"
-                android:text="@string/nav_chat"
-                android:textColor="@color/fontWhite" />
-
-            <ImageButton
-                android:id="@+id/navSchedule"
-                android:layout_width="34dp"
-                android:layout_height="32dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="2dp"
-                android:layout_marginRight="111dp"
-                android:background="@android:color/background_dark"
-                android:src="@drawable/clock"
-                android:text="Schedule"
-                android:tint="@color/fontWhite" />
-
-            <TextView
-                android:id="@+id/navTxtSchedule"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_marginRight="99dp"
-                android:text="@string/nav_schedule"
-                android:textColor="@color/fontWhite" />
-
-            <ImageButton
-                android:id="@+id/navLiveFeed"
-                android:layout_width="34dp"
-                android:layout_height="32dp"
-                android:layout_gravity="left"
-                android:layout_marginLeft="113dp"
-                android:layout_marginTop="2dp"
-                android:background="@android:color/background_dark"
-                android:src="@drawable/bullet_list"
-                android:text="Live Feed"
-                android:tint="@color/fontWhite" />
-
-            <TextView
-                android:id="@+id/navTxtLivefeed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="100dp"
-                android:text="@string/nav_livefeed"
-                android:textColor="@color/fontWhite" />
-
-            <ImageButton
-                android:id="@+id/navStream"
-                android:layout_width="33dp"
-                android:layout_height="28dp"
-                android:layout_marginLeft="19dp"
-                android:layout_marginTop="4dp"
-                android:background="@android:color/background_dark"
-                android:src="@drawable/sound_bars_pulse"
-                android:text="Stream"
-                android:tint="@color/accentRed" />
-
-            <TextView
-                android:id="@+id/navTxtStream"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="12dp"
-                android:text="@string/nav_stream"
-                android:textColor="@color/accentRed" />
-        </android.support.design.widget.BottomNavigationView>
-
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/playerLayout"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@android:color/black"
-
-        app:layout_constraintBottom_toTopOf="@+id/navBarLayout">
-
-        <TextView
-            android:id="@+id/now_playing_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:text="Now playing.."
-            android:textSize="20sp"
-            android:textStyle="italic"
-            app:layout_constraintLeft_toRightOf="@+id/musicPlayer" />
+        <ImageButton
+            android:id="@+id/navChat"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/nav_chat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/navSchedule"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/playStop"
-            android:layout_width="47dp"
-            android:layout_height="47dp"
-            android:layout_gravity="bottom"
+            android:id="@+id/navSchedule"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/nav_schedule"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/navLiveFeed"
+            app:layout_constraintRight_toLeftOf="@+id/navChat"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageButton
+            android:id="@+id/navLiveFeed"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:background="@drawable/nav_live"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/navStream"
+            app:layout_constraintRight_toLeftOf="@+id/navSchedule"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            android:cropToPadding="false"
-            android:foreground="@drawable/play"
-            android:tint="@color/fontWhite"
-            app:layout_constraintRight_toRightOf="parent" />
-
-        <ImageView
-            android:id="@+id/musicPlayer"
-            android:layout_width="33dp"
-            android:layout_height="43dp"
-            android:layout_gravity="bottom"
-
-            android:paddingTop="5dp"
-            android:src="@drawable/music_player" />
+        <ImageButton
+            android:id="@+id/navStream"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/nav_stream"
+            android:backgroundTint="@color/accentRed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/navLiveFeed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

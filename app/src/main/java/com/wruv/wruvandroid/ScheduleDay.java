@@ -17,13 +17,22 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import java.lang.reflect.Array;
+
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ScheduleDay extends AppCompatActivity{
     private static final String TAG = "ScheduleDay";
+
+    private boolean pCurrentlyPlaying;
 
     private TextView theDate;
     private RecyclerView mRecyclerView;
@@ -38,17 +47,22 @@ public class ScheduleDay extends AppCompatActivity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(getIntent().getExtras() != null){
+            pCurrentlyPlaying = getIntent().getExtras().getBoolean("pCurrentlyPlaying");
+        }
         //save and display date, create table cell
         setContentView(R.layout.schedule_day);
         theDate = (TextView) findViewById(R.id.date);
 
         Intent incomingIntent = getIntent();
         String date = incomingIntent.getStringExtra("date");
+        String textDate = incomingIntent.getStringExtra("textDate");
 
         scheduleArray = incomingIntent.getParcelableArrayListExtra("scheduleArray");
 
+        theDate.setText(textDate);
 
-        theDate.setText(date);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.schedule_recycler_view);
         mRecyclerView.setHasFixedSize(true);
@@ -57,7 +71,6 @@ public class ScheduleDay extends AppCompatActivity{
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.schedule_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -65,8 +78,7 @@ public class ScheduleDay extends AppCompatActivity{
         recyclerView.setAdapter(adapter);
         Log.d(TAG,"Finish recyclerView");
 
-
-
     }
+
 
 }
