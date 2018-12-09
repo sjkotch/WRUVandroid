@@ -6,64 +6,65 @@
     android:id="@+id/setLayout"
     android:layout_width="match_parent"
     android:layout_height="110dp"
-    android:background="@color/fontWhite">
+    android:background="@android:color/background_light">
 
-        <TextView
-            android:id="@+id/show"
-            android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/show"
+        android:layout_width="match_parent"
 
-            android:layout_height="20dp"
-            android:paddingLeft="5dp"
-            android:text="@string/live_feed_preforming"
-            android:textColor="@color/fontBlack"
+        android:layout_height="20dp"
+        android:background="@color/fontWhite"
+        android:paddingLeft="5dp"
+        android:text="@string/live_feed_preforming"
 
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent" />
+        android:textColor="@color/fontBlack"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/bottomBorder2"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            app:layout_constraintBottom_toBottomOf="@+id/show"
-            app:srcCompat="@color/fontBlack" />
+    <ImageView
+        android:id="@+id/bottomBorder2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintTop_toBottomOf="@+id/show"
+        app:srcCompat="@color/fontBlack" />
 
-        <TextView
-            android:id="@+id/DjName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:paddingLeft="5dp"
-            android:text="@string/live_feed_dj"
-            android:textColor="@color/fontBlack"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toLeftOf="@+id/show"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/show" />
+    <TextView
+        android:id="@+id/DjName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="5dp"
+        android:text="@string/live_feed_dj"
+        android:textColor="@color/fontBlack"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/show"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/show" />
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:paddingLeft="5dp"
-            android:text="@string/live_feed_time_slot"
-            android:textColor="@color/fontBlack"
-            android:textSize="14sp"
-            app:layout_constraintLeft_toLeftOf="@+id/DjName"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DjName" />
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="5dp"
+        android:text="@string/live_feed_time_slot"
+        android:textColor="@color/fontBlack"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/DjName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/DjName" />
 
-        <TextView
-            android:id="@+id/startTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text="@string/live_feed_time"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+    <TextView
+        android:id="@+id/startTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="@string/live_feed_time"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
 
-            android:textColor="@color/accentRed"
-            app:layout_constraintBottom_toBottomOf="@+id/show"
-            app:layout_constraintEnd_toEndOf="parent" />
+        android:textColor="@color/accentRed"
+        app:layout_constraintBottom_toBottomOf="@+id/show"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
