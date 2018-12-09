@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginBottom="5dp"
-        android:text="@string/live_feed_dj"
+        android:text=" "
         android:textColor="@color/fontBlack"
         android:textSize="12sp"
         android:textStyle="bold"
