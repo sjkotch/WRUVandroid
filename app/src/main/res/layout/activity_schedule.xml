@@ -7,6 +7,25 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/instructLayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose a date to see schedule"
+            android:textAlignment="center"
+            android:textColor="@color/fontWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/navBarLayout"
         android:layout_width="match_parent"
         android:layout_height="45dp"
@@ -90,9 +109,10 @@
         android:id="@+id/calLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="58dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/headerLayout">
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="45dp"
+        app:layout_constraintBottom_toTopOf="@+id/navBarLayout"
+        app:layout_constraintTop_toBottomOf="@+id/instructLayout">
 
         <CalendarView
             android:id="@+id/calendarLayout"

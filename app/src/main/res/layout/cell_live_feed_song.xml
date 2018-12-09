@@ -7,6 +7,13 @@
     android:background="@color/fontWhite">
 
     <ImageView
+        android:id="@+id/bottomBorder"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@color/fontBlack" />
+
+    <ImageView
         android:id="@+id/musicIcon"
         android:layout_width="40dp"
         android:layout_height="40dp"

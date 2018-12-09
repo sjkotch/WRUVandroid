@@ -91,13 +91,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="58dp"
+        android:layout_marginBottom="45dp"
         android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/navBarLayout"
         app:layout_constraintTop_toTopOf="@+id/headerLayout">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/liveFeedRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="508dp" />
+            android:layout_height="wrap_content" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

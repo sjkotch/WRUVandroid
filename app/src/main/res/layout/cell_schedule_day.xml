@@ -1,35 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/setLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setLayout"
     android:layout_width="match_parent"
     android:layout_height="110dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@color/fontWhite">
 
         <TextView
             android:id="@+id/show"
             android:layout_width="match_parent"
-            android:layout_height="20dp"
 
-            android:background="@android:color/white"
+            android:layout_height="20dp"
+            android:paddingLeft="5dp"
             android:text="@string/live_feed_preforming"
             android:textColor="@color/fontBlack"
+
             android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            tools:layout_editor_absoluteX="-4dp"
-            tools:layout_editor_absoluteY="12dp" />
+        <ImageView
+            android:id="@+id/bottomBorder2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/show"
+            app:srcCompat="@color/fontBlack" />
 
         <TextView
             android:id="@+id/DjName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:paddingLeft="5dp"
             android:text="@string/live_feed_dj"
-            android:textColor="@color/fontWhite"
+            android:textColor="@color/fontBlack"
             android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="@+id/show"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/show" />
 
         <TextView
@@ -37,25 +46,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:paddingLeft="5dp"
             android:text="@string/live_feed_time_slot"
-            android:textColor="@color/fontWhite"
+            android:textColor="@color/fontBlack"
             android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="@+id/DjName"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/DjName" />
 
         <TextView
             android:id="@+id/startTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="85dp"
+            android:layout_marginRight="5dp"
             android:text="@string/live_feed_time"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            android:textColor="@color/accentRed"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
 
-            />
+            android:textColor="@color/accentRed"
+            app:layout_constraintBottom_toBottomOf="@+id/show"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
