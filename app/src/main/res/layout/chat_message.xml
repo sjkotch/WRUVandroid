@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <LinearLayout
+        android:id="@+id/chat_left_msg_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="120dp"
+        android:layout_gravity="start"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/chat_left_msg_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/recieved_chat_layout"
+            android:padding="12dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:radius="20dip"
+            android:textColor="@color/fontBlack" />
+
+        <TextView
+            android:id="@+id/chat_left_msg_sender_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxWidth="240dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@+id/chat_left_msg_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/chat_left_msg_text_view" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/chat_right_msg_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="100dp"
+        android:layout_gravity="end"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:radius="20dp">
+
+        <TextView
+            android:id="@+id/chat_right_msg_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/sent_chat_layout"
+            android:padding="12dp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:radius="20dip"
+            android:textColor="@color/fontBlack" />
+
+        <TextView
+            android:id="@+id/chat_right_msg_sender_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxWidth="240dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="5dp"
+            android:text=""
+            android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintRight_toLeftOf="@+id/chat_right_msg_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/chat_right_msg_text_view" />
+    </LinearLayout>
+
+</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
