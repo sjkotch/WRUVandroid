@@ -134,29 +134,29 @@ public class Schedule extends AppCompatActivity {
         String newMonth = Integer.toString(month);
         String returnedString ="";
         switch(newMonth){
-            case "01": returnedString = returnedString + "January";
+            case "0": returnedString = returnedString + "January";
                 break;
-            case "02": returnedString = returnedString + "February";
+            case "1": returnedString = returnedString + "February";
                 break;
-            case "03": returnedString = returnedString + "March";
+            case "2": returnedString = returnedString + "March";
                 break;
-            case "04": returnedString = returnedString + "April";
+            case "3": returnedString = returnedString + "April";
                 break;
-            case "05": returnedString = returnedString + "May";
+            case "4": returnedString = returnedString + "May";
                 break;
-            case "06": returnedString = returnedString + "June";
+            case "5": returnedString = returnedString + "June";
                 break;
-            case "07": returnedString = returnedString +"July";
+            case "6": returnedString = returnedString +"July";
                 break;
-            case "08": returnedString = returnedString +"August";
+            case "7": returnedString = returnedString +"August";
                 break;
-            case "09": returnedString = returnedString +"September";
+            case "8": returnedString = returnedString +"September";
                 break;
-            case "10": returnedString = returnedString +"October";
+            case "9": returnedString = returnedString +"October";
                 break;
-            case "11": returnedString = returnedString +"November";
+            case "10": returnedString = returnedString +"November";
                 break;
-            case "12": returnedString = returnedString +"December";
+            case "11": returnedString = returnedString +"December";
                 break;
 
         }
